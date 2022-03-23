@@ -1,0 +1,22 @@
+Microservicio cliente que se comunica con otro. 
+
+1. Creamos la clase persona que tiene la misma forma JSON que recibe 
+   el recurso de cursos.
+   
+2. Creamos el @Bean RestTemplate en la clase Application para que lo gestione Spring
+	y poder inyectarlo cuando sea necesario. ( Esta calse viene del starter Web).
+	Este tipo de clases @Bean solo se peude utilizar en clases de tipo @Configuration.
+
+3. En la clase controladora 
+	3.1 Inyectamos el template @Autowired
+	3.2 Desde los recursos de la clase cliente llamamos a los del microservicio contacto con
+		template.
+		
+4. Tenemos que poner 
+
+	@ComponentScan(basePackages = {"controller"})
+	@SpringBootApplication
+		public class Application {
+	
+5. Poner el microservicio cliente en un puerto diferente en el aplication.properties
+	server.port=9000
